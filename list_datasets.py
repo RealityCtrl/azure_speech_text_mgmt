@@ -17,13 +17,13 @@ class TextToSpeech(object):
 	def list_datasets(self):
 		dataset_url =  'https://westus.cris.ai/api/speechtotext/v2.0/datasets'
 		headers = {
-			'Authorization':'bearer ' + self.access_token,
+			#'Authorization':'bearer ' + self.access_token,
+			'Ocp-Apim-Subscription-Key':self.subscription_key,
 			'Accept': 'application/json'
 		}
 		r = requests.get(url=dataset_url, headers=headers)
 
 		print(r.status_code)
-		print(r.json)
 		print(r.text)
 
 
